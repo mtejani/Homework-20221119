@@ -12,13 +12,10 @@ public class TestSuit extends BaseTest
    HomePageCategoryCurrency homePageCategoryCurrency = new HomePageCategoryCurrency();
    FaceBookPage faceBookPage = new FaceBookPage();
    AlertVote alertVote = new AlertVote();
+   EmailAFriendAppleMacBook emailAFriendAppleMacBook = new EmailAFriendAppleMacBook();
  @Test
     public void commentOnNewsArtical()
     {
-      //homePage.clickOnRegisterButton();  // to open home page
-      //homePage.toVerifyUserisonRegisterationPage(); // to verify the correct homepage.
-      //registerPage.enterRegistrationDetails(); // fill in the registration details.
-      //registrationResultPage.toVerifyUserHasBeenSuccessfullyRegistered(); // verify the registration detail outcome.
       shareNewsArtical.commentOnNewsArticalandcatchtheText();
     }
 
@@ -27,14 +24,12 @@ public class TestSuit extends BaseTest
     {
 
         homePageCategoryCurrency.verifyHomePageFeaturedProductsInUSD();
-
     }
  @Test
      public void toVerifytheHomepageCategoryItemPriceCurrencyInEuro()
      {
 
          homePageCategoryCurrency.verifyHomePageFeaturedProductsInEuro();
-
      }
 @Test
      public void facebook()
@@ -49,4 +44,12 @@ public class TestSuit extends BaseTest
         alertVote.acceptIfAlertPresent();
     }
 
+@Test
+    public void shareAppleMacbookToFriend()
+    {
+        homePage.clickOnRegisterButton();
+        registerPage.enterRegistrationDetails();
+        emailAFriendAppleMacBook.emailAProductAppleMacBook();
+
+    }
 }

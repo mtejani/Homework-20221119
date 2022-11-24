@@ -1,9 +1,16 @@
 package org.example;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 
@@ -67,5 +74,16 @@ public class Utils extends BasePage
         select.selectByIndex(index);
     }
 
+    public static void captureScreenShot(String scrShotSource)
+    {
+        TakesScreenshot scrShot =((TakesScreenshot)driver);
+        File ScrFile=scrShot.getScreenshotAs(OutputType.FILE);
+        File DestFile = new File("src/ScreenShots/"+scrShotSource+timeStamp()+".jpg");
+        try {
+            FileUtils.copyFile(ScrFile, DestFile);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }
