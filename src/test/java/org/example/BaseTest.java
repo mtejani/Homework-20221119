@@ -22,13 +22,13 @@ public class BaseTest extends Utils
 
     public void tearDown(ITestResult result)
    {
-       //condition to check if test fails
+       
        if(!result.isSuccess())
        {
-           //calling captureScreenShot Method
+
            captureScreenShot(result.getName());
        }
-       //closeBrowser method is called with object
+
        driverManager.closeBrowser();
 
    }
